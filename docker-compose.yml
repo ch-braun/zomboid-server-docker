@@ -1,0 +1,19 @@
+services:
+  zomboid-server:
+    image: ghcr.io/ch-braun/zomboid-server-docker:latest
+    platform: linux/amd64
+    ports:
+      - "16261:16261/udp"
+      - "16262:16262/udp"
+    env_file: .env
+    user: 1069:1069
+    deploy:
+      resources:
+        limits:
+          cpus: '3'
+          memory: 6144M
+    entrypoint: /bin/bash -c "./start-server.sh -servername $SERVERNAME -adminpassword $SERVERADMINPASSWORD -ip $SERVERIP"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
