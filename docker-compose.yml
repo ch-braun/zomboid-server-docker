@@ -14,7 +14,7 @@ services:
           memory: 6144M
     volumes:
       - zomboid-server:/opt/zomboid-server
-    entrypoint: /bin/bash -c "./start-server.sh -servername $SERVERNAME -adminpassword $SERVERADMINPASSWORD -ip $SERVERIP"
+    entrypoint: /bin/bash -c "./start-server.sh -servername $SERVERNAME -adminpassword $SERVERADMINPASSWORD"
     logging:
       driver: "json-file"
       options:
