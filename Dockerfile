@@ -7,7 +7,7 @@ RUN apt-get update
 RUN apt-get install -y tmux
 
 # Add user
-RUN useradd -m -u 1069 -g 1069 pzuser
+RUN useradd -m -d /opt/zomboid-server -u 1069 pzuser
 
 # Create install dir
 RUN mkdir -p /opt/pzserver
