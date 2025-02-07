@@ -3,8 +3,9 @@ services:
     image: ghcr.io/ch-braun/zomboid-server-docker:latest
     platform: linux/amd64
     ports:
-      - "16261:16261/udp"
-      - "16262:16262/udp"
+      - "16261:16261/udp" # Default play port
+      - "16262:16262/udp" # UDP offload port
+      - "27015:27015/tcp" # RCON
     env_file: .env
     user: "1069"
     deploy:
