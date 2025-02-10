@@ -21,6 +21,8 @@ RUN steamcmd +runscript /opt/steamcmd/update_zomboid.txt
 
 RUN rm -f /opt/pzserver/steamapps/*.acf
 
+RUN chown -R pzuser:pzuser /opt/pzserver
+
 # Switch to user
 USER pzuser
 
