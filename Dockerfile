@@ -16,12 +16,13 @@ RUN chown pzuser:pzuser /opt/pzserver
 RUN mkdir -p /opt/steamcmd
 
 COPY --chown=pzuser:pzuser ./update_zomboid.txt /opt/steamcmd/update_zomboid.txt
-# Switch to user
-USER pzuser
 
-RUN steamcmd -v $PWD:/opt/steamcmd +runscript /opt/steamcmd/update_zomboid.txt
+RUN steamcmd +runscript /opt/steamcmd/update_zomboid.txt
 
 RUN rm -f /opt/pzserver/steamapps/*.acf
+
+# Switch to user
+USER pzuser
 
 # Expose ports
 # 16261/udp - Game Server Port
